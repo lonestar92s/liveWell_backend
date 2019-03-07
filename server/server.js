@@ -9,15 +9,17 @@ let app = express()
 //cors
 app.use(cors())
 
-app.use(morgan('combined'))
 //body parser
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(morgan('combined'))
+
 
 //set port
-const PORT = 9000
+const PORT = 9000		
 
-
+app.use('/house', houseRouter)
 app.listen(PORT, ()=>{
 console.log("we connected")
 })
