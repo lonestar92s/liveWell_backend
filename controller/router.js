@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router()
 let app = express()
 
-
+const convert = require('xml-js')
 
 //Instantiate
 const zillow = new Zillow(API_KEY);
@@ -15,11 +15,10 @@ const parameters = {
 
 //get house 
 router.get('/', (req, res, next)=>{
-	zillow.get('GetZestimate', parameters)
+	return zillow.get('GetZestimate', parameters)
   .then(results=> {
-  	console.log(results)
-  	// res.send(results.json())
-  	res.send(results)
+    let jsonResults = convert.xml2json(results, {compact: true, spaces: 4})
+  	res.send(jsonResults)
   })
   	.catch(error => res.send(error))
     // results here is an object { message: {}, request: {}, response: {}} 
