@@ -9,21 +9,25 @@ let app = express()
 //Instantiate
 const zillow = new Zillow(API_KEY);
 const parameters = {
-  zpid: 124837225
+  zpid: 124837225,
+
 };
 
 //get house 
-router.get('/', (req, res)=>{
+router.get('/', (req, res, next)=>{
 	zillow.get('GetZestimate', parameters)
   .then(results=> {
   	console.log(results)
   	// res.send(results.json())
-  	res.send(results.response.address)
+  	res.send(results)
   })
   	.catch(error => res.send(error))
     // results here is an object { message: {}, request: {}, response: {}} 
   })
     
+
+
+  	
 
 
 

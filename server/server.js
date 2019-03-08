@@ -19,7 +19,7 @@ app.use(morgan('combined'))
 //set port
 const PORT = 9000		
 
-app.use('/house', houseRouter)
+app.use('/property', houseRouter)
 app.listen(PORT, ()=>{
 console.log("we connected")
 })
