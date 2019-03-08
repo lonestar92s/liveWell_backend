@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
-const houseRouter = require('../controller/router.js')
+const houseRouter = require('./controller/router.js')
 
 //express
 let app = express()
