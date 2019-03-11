@@ -9,7 +9,7 @@ let app = express()
 //Instantiate
 const zillow = new Zillow(API_KEY);
 const parameters = {
-  zpid: 2085769858,
+  zpid: 48749425,
 };
 
 //get house 
@@ -22,11 +22,12 @@ router.get('/', (req, res, next)=>{
     // results here is an object { message: {}, request: {}, response: {}} 
 })    
 //Use form to accept "GetSearchResults" dynamically on submit
-router.get('/pic', (req, res)=> {
-  zillow.get('GetUpdatedPropertyDetails', {zpid: 13176378})
-    .then(response=> {
-      res.send(response)
+router.get('/pic', (req, res, next)=> {
+  zillow.get('GetUpdatedPropertyDetails', parameters)
+    .then(results=> {
+      res.send(results)
     })
+    .catch(error => res.send(error))
 })
   	
 
