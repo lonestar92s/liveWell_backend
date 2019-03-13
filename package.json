@@ -17,6 +17,7 @@
     "morgan": "^1.9.1",
     "node-zillow": "^2.0.0",
     "nodemon": "^1.18.10",
+    "walkscore-pk": "0.0.3",
     "xml-js": "^1.6.11"
   }
 }
