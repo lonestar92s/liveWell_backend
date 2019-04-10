@@ -17,7 +17,7 @@ app.use(morgan('combined'))
 
 
 //set port
-const PORT = 9000		
+const PORT = process.env.PORT || 8080;		
 
 app.use('/property', houseRouter)
 app.listen(PORT, ()=>{
