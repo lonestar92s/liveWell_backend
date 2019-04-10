@@ -1,3 +1,6 @@
+//dot env
+require('dotenv').config()
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
@@ -17,11 +20,11 @@ app.use(morgan('combined'))
 
 
 //set port
-const PORT = process.env.PORT || 8080;		
+const PORT = process.env.PORT;		
 
 app.use('/property', houseRouter)
 app.listen(PORT, ()=>{
-console.log("we connected")
+console.log(`listening on port ${PORT}`)
 })
 
 
